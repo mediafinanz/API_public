@@ -1,0 +1,8 @@
+.git
+.idea
+.env
+vendor
+_gitPull.sh
+_gitPush.sh
+**/*.min.css
+**/*.min.js
