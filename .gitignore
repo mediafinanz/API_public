@@ -6,3 +6,4 @@ _gitPull.sh
 _gitPush.sh
 **/*.min.css
 **/*.min.js
+Changelog.md
