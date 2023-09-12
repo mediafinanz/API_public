@@ -2,7 +2,7 @@
 
 #
 # Zugangsdaten erhalten Sie bei mediaFinanz GmbH
-# @see https://api.mediafinanz.de/docs/v1.2/account/
+# @see https://api.mediafinanz.de/docs/v2/account/
 #
 iClientNo=000000;
 sUser='';
@@ -12,12 +12,12 @@ sPassword='';
 
 #
 # Beispiel-JSON-Datensatz einer Forderung
-# für die Übergabe an die mediaFinanz REST API v1.2
-# @see https://api.mediafinanz.de/docs/v1.2/collect_claim_new/
-# @see https://api.mediafinanz.de/docs/v1.2/collect_claim_new_faq/#anfrage-ueberpruefen
+# für die Übergabe an die mediaFinanz REST API v2
+# @see https://api.mediafinanz.de/docs/v2/collect_claim_new/
+# @see https://api.mediafinanz.de/docs/v2/collect_claim_new_faq/#anfrage-ueberpruefen
 #
 curl -X 'PUT' \
-  'https://test.api.mediafinanz.de/v1.2/collect/claim/new/' \
+  'https://test.api.mediafinanz.de/v2/collect/claim/new/' \
   -H "id: $iClientNo" \
   -H "user: $sUser" \
   -H "password: $sPassword" \

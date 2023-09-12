@@ -1,9 +1,9 @@
 
 # API\_public
 
-Clients, Code Beispiele, u.a. zur mediaFinanz API v1.2
+Clients, Code Beispiele, u.a. zur mediaFinanz API v2
 
-@see https://api.mediafinanz.de/docs/v1.2/readme/
+@see https://api.mediafinanz.de/docs/v2/readme/
 
 ---
 
