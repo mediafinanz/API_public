@@ -9,7 +9,7 @@ $sUser = '';
 $sPassword = '';
 
 // validate gegen OpenApi true|false
-// @see https://api.mediafinanz.de/docs/v2/collect_claim_new_faq/#anfrage-ueberpruefen
+// @see https://api.mediafinanz.de/docs/v2/openapi/#validate-option
 $bValidate = true;
 
 #-----------------------------------------------------------------------------------------------------------------------
@@ -17,10 +17,9 @@ $bValidate = true;
 /**
  * Beispiel-JSON-Datensatz einer Forderung
  * für die Übergabe an die mediaFinanz REST API v2
- * @see https://api.mediafinanz.de/docs/v2/collect_claim_new/
+ * @see https://api.mediafinanz.de/docs/v2/inkasso_request_collect_claim_new/
  */
 $sJsonBody = '{
-  "ClientNo": ' . $iClientNo . ',
   "ClientCustomerRefNo": "6910-2",
   "PartnerNo": 91,
   "AcceptanceDate": "2022-10-17T12:15:00",
