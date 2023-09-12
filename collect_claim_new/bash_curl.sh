@@ -18,7 +18,7 @@ sPassword='';
 #
 curl -X 'PUT' \
   'https://test.api.mediafinanz.de/v2/collect/claim/new/' \
-  -H "id: $sUuid" \
+  -H "uuid: $sUuid" \
   -H "user: $sUser" \
   -H "password: $sPassword" \
   -H 'validate: 1' \
