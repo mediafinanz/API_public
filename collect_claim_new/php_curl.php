@@ -119,7 +119,7 @@ $sJsonBody = '{
 $aHeader = array();
 
 // Zugangsdaten
-$aHeader[] = 'id: ' . $iClientNo; # Mandant ($iClientNo)
+$aHeader[] = 'id: ' . $sUuid; # UUID client
 $aHeader[] = 'user: ' . $sUser; # user
 $aHeader[] = 'password: ' . $sPassword; # password
 
