@@ -4,7 +4,7 @@
  * Zugangsdaten erhalten Sie bei mediaFinanz GmbH
  * @see https://api.mediafinanz.de/docs/v2/account/
  */
-$iClientNo = 000000;
+$sUuid = '12345678-1234-1234-1234-123456789012';
 $sUser = '';
 $sPassword = '';
 
@@ -25,8 +25,9 @@ $sJsonBody = '{
   "AcceptanceDate": "2022-10-17T12:15:00",
   "Stage": "V",
   "Debtor": {
-    "PersonType": 1,
+    "LegalForm": "Sonstige",
     "Company": "",
+    "PersonType": 1,
     "LastName": "Mustermann",
     "FirstName": "Max",
     "BirthDate": "2001-05-08",
