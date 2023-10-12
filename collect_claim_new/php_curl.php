@@ -2,22 +2,22 @@
 
 /**
  * Zugangsdaten erhalten Sie bei mediaFinanz GmbH
- * @see https://api.mediafinanz.de/docs/v2/account/
+ * @see https://api.mediafinanz.de/docs/v2.1/account/
  */
 $sUuid = '12345678-1234-1234-1234-123456789012';
 $sUser = '';
 $sPassword = '';
 
 // validate gegen OpenApi true|false
-// @see https://api.mediafinanz.de/docs/v2/openapi/#validate-option
+// @see https://api.mediafinanz.de/docs/v2.1/openapi/#validate-option
 $bValidate = true;
 
 #-----------------------------------------------------------------------------------------------------------------------
 
 /**
  * Beispiel-JSON-Datensatz einer Forderung
- * für die Übergabe an die mediaFinanz REST API v2
- * @see https://api.mediafinanz.de/docs/v2/inkasso_request_collect_claim_new/
+ * für die Übergabe an die mediaFinanz REST API v2.1
+ * @see https://api.mediafinanz.de/docs/v2.1/inkasso_request_collect_claim_new/
  */
 $sJsonBody = '{
   "ClientCustomerRefNo": "6910-2",
@@ -113,8 +113,8 @@ $sJsonBody = '{
 
 /**
  * PHP Beispiel
- * Übergabe einer neuen Forderung an mediaFinanz REST API v2
- * @see https://api.mediafinanz.de/docs/v2/openapi/gui/
+ * Übergabe einer neuen Forderung an mediaFinanz REST API v2.1
+ * @see https://api.mediafinanz.de/docs/v2.1/openapi/gui/
  */
 $aHeader = array();
 
@@ -124,14 +124,14 @@ $aHeader[] = 'user: ' . $sUser; # user
 $aHeader[] = 'password: ' . $sPassword; # password
 
 // validate gegen OpenApi true|false
-// @see https://api.mediafinanz.de/docs/v2/collect_claim_new_faq/#anfrage-ueberpruefen
+// @see https://api.mediafinanz.de/docs/v2.1/faq/#anfrage-ueberpruefen
 (true === $bValidate) ? $aHeader[] = 'validate: 1' : false;
 
 $aHeader[] = 'Accept: application/json';
 $aHeader[] = 'Content-Type: application/json';
 
 $rCurl = curl_init();
-curl_setopt($rCurl, CURLOPT_URL, 'https://test.api.mediafinanz.de/v2/collect/claim/new/');
+curl_setopt($rCurl, CURLOPT_URL, 'https://test.api.mediafinanz.de/v2.1/collect/claim/new/');
 curl_setopt($rCurl, CURLOPT_CUSTOMREQUEST, 'PUT');
 curl_setopt($rCurl, CURLOPT_HTTPHEADER, $aHeader);
 curl_setopt($rCurl, CURLOPT_POSTFIELDS, $sJsonBody);

@@ -2,7 +2,7 @@
 
 #
 # Zugangsdaten erhalten Sie bei mediaFinanz GmbH
-# @see https://api.mediafinanz.de/docs/v2/account/
+# @see https://api.mediafinanz.de/docs/v2.1/account/
 #
 sUuid='12345678-1234-1234-1234-123456789012';
 sUser='';
@@ -12,12 +12,12 @@ sPassword='';
 
 #
 # Beispiel-JSON-Datensatz einer Forderung
-# für die Übergabe an die mediaFinanz REST API v2
-# @see https://api.mediafinanz.de/docs/v2/inkasso_request_collect_claim_new/
-# @see https://api.mediafinanz.de/docs/v2/openapi/#validate-option
+# für die Übergabe an die mediaFinanz REST API v2.1
+# @see https://api.mediafinanz.de/docs/v2.1/inkasso_request_collect_claim_new/
+# @see https://api.mediafinanz.de/docs/v2.1/openapi/#validate-option
 #
 curl -X 'PUT' \
-  'https://test.api.mediafinanz.de/v2/collect/claim/new/' \
+  'https://test.api.mediafinanz.de/v2.1/collect/claim/new/' \
   -H "uuid: $sUuid" \
   -H "user: $sUser" \
   -H "password: $sPassword" \
