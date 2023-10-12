@@ -124,7 +124,7 @@ $aHeader[] = 'user: ' . $sUser; # user
 $aHeader[] = 'password: ' . $sPassword; # password
 
 // validate gegen OpenApi true|false
-// @see https://api.mediafinanz.de/docs/v2/collect_claim_new_faq/#anfrage-ueberpruefen
+// @see https://api.mediafinanz.de/docs/v2/faq/#anfrage-ueberpruefen
 (true === $bValidate) ? $aHeader[] = 'validate: 1' : false;
 
 $aHeader[] = 'Accept: application/json';
