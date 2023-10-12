@@ -1,4 +1,11 @@
 <?php
+/**
+ * PHP Beispiel
+ * Übergabe einer neuen Forderung an die mediaFinanz REST API v2.1
+ * @see https://api.mediafinanz.de/docs/v2.1/openapi/gui/
+ */
+
+#-----------------------------------------------------------------------------------------------------------------------
 
 /**
  * Zugangsdaten erhalten Sie bei mediaFinanz GmbH
@@ -111,11 +118,10 @@ $sJsonBody = '{
 
 #-----------------------------------------------------------------------------------------------------------------------
 
-/**
- * PHP Beispiel
- * Übergabe einer neuen Forderung an mediaFinanz REST API v2.1
- * @see https://api.mediafinanz.de/docs/v2.1/openapi/gui/
+/*
+ * Curl Request in PHP absetzen
  */
+
 $aHeader = array();
 
 // Zugangsdaten
@@ -136,14 +142,14 @@ curl_setopt($rCurl, CURLOPT_CUSTOMREQUEST, 'PUT');
 curl_setopt($rCurl, CURLOPT_HTTPHEADER, $aHeader);
 curl_setopt($rCurl, CURLOPT_POSTFIELDS, $sJsonBody);
 curl_setopt($rCurl, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($rCurl, CURLOPT_CONNECTTIMEOUT, 10);
-curl_setopt($rCurl, CURLOPT_TIMEOUT, 10);
+curl_setopt($rCurl, CURLOPT_CONNECTTIMEOUT, 30);
+curl_setopt($rCurl, CURLOPT_TIMEOUT, 30);
 
 #-----------------------------------------------------------------------------------------------------------------------
 
 // Response
 $sResponse = curl_exec($rCurl);
-echo $sResponse;
+echo $sResponse  . PHP_EOL;
 
 // potential Errors
 $sError = curl_error($rCurl);

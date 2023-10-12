@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Beispiel Curl Command
+# Übergabe einer neuen Forderung an die mediaFinanz REST API v2.1
+# @see https://api.mediafinanz.de/docs/v2.1/openapi/gui/
+
+#-----------------------------------------------------------------------------------------------------------------------
+
 #
 # Zugangsdaten erhalten Sie bei mediaFinanz GmbH
 # @see https://api.mediafinanz.de/docs/v2.1/account/
@@ -11,7 +17,7 @@ sPassword='';
 #-----------------------------------------------------------------------------------------------------------------------
 
 #
-# Beispiel-JSON-Datensatz einer Forderung
+# Curl Command
 # für die Übergabe an die mediaFinanz REST API v2.1
 # @see https://api.mediafinanz.de/docs/v2.1/inkasso_request_collect_claim_new/
 # @see https://api.mediafinanz.de/docs/v2.1/openapi/#validate-option
