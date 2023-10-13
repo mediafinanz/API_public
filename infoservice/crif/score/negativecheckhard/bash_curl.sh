@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Beispiel Curl Command - Crif Bonitätsauskunkt (Produkt ConCheck)
+# Beispiel Curl Command - Crif Bonitätsauskunkt (Produkt NegativeCheckHard)
 # Anfrage an die mediaFinanz REST API v2.1
 # @see https://api.mediafinanz.de/docs/v2.1/openapi/gui/
 
@@ -19,11 +19,11 @@ sPassword='';
 #
 # Curl Command
 # Crif Bonitätsanfrage an die mediaFinanz REST API v2.1
-# @see https://api.mediafinanz.de/docs/v2.1/crif_request_score_concheck/
+# @see https://api.mediafinanz.de/docs/v2.1/crif_request_score_negativecheckhard/
 # @see https://api.mediafinanz.de/docs/v2.1/openapi/#validate-option
 #
 curl -X 'POST' \
-  'https://test.api.mediafinanz.de/v2.1/infoservice/crif/score/concheck/' \
+  'https://test.api.mediafinanz.de/v2.1/infoservice/crif/score/negativecheckhard/' \
   -H "uuid: $sUuid" \
   -H "user: $sUser" \
   -H "password: $sPassword" \
@@ -37,17 +37,17 @@ curl -X 'POST' \
       "ReportFormat": "NONE"
     },
     "Person": {
-      "Title": "Prof. Dr.",
-      "FirstName": "Max",
-      "LastName": "Mustermann",
+      "Title": "",
+      "FirstName": "Erick",
+      "LastName": "Gonzalez",
       "Gender": "m",
       "BirthDate": "2001-05-08"
     },
     "Address": {
-      "Street": "Weiße Breite",
-      "HouseNumber": "5-7",
-      "PostalCode": "49084",
-      "City": "Osnabrück",
+      "Street": "Notbachstr.",
+      "HouseNumber": "4",
+      "PostalCode": "73888",
+      "City": "Wasserbad",
       "CountryCode": "DE"
     }
-  }';
+  }'

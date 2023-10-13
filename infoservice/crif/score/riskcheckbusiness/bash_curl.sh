@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Beispiel Curl Command - Crif Bonitätsauskunkt (Produkt ConCheck)
+# Beispiel Curl Command - Crif Bonitätsauskunkt (Produkt RiskCheckBusiness)
 # Anfrage an die mediaFinanz REST API v2.1
 # @see https://api.mediafinanz.de/docs/v2.1/openapi/gui/
 
@@ -19,11 +19,11 @@ sPassword='';
 #
 # Curl Command
 # Crif Bonitätsanfrage an die mediaFinanz REST API v2.1
-# @see https://api.mediafinanz.de/docs/v2.1/crif_request_score_concheck/
+# @see https://api.mediafinanz.de/docs/v2.1/crif_request_score_riskcheckbusiness/
 # @see https://api.mediafinanz.de/docs/v2.1/openapi/#validate-option
 #
 curl -X 'POST' \
-  'https://test.api.mediafinanz.de/v2.1/infoservice/crif/score/concheck/' \
+  'https://test.api.mediafinanz.de/v2.1/infoservice/crif/score/riskcheckbusiness/' \
   -H "uuid: $sUuid" \
   -H "user: $sUser" \
   -H "password: $sPassword" \
@@ -32,16 +32,14 @@ curl -X 'POST' \
   -H 'Content-Type: application/json' \
   -d '{
     "Order": {
-      "CustomerReference": "6910-2",
+      "CustomerReference": "7910-3",
       "ProofOfInterest": 3,
       "ReportFormat": "NONE"
     },
-    "Person": {
-      "Title": "Prof. Dr.",
-      "FirstName": "Max",
-      "LastName": "Mustermann",
-      "Gender": "m",
-      "BirthDate": "2001-05-08"
+    "Company": {
+      "CompanyName": "Mustermann GmbH",
+      "CommercialRegisterNumber": "HRB 230807",
+      "VAT_ID": "DE123456789"
     },
     "Address": {
       "Street": "Weiße Breite",
@@ -50,4 +48,4 @@ curl -X 'POST' \
       "City": "Osnabrück",
       "CountryCode": "DE"
     }
-  }';
+  }'

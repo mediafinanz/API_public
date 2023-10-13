@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Beispiel Curl Command - Crif Bonitätsauskunkt (Produkt ConCheck)
+# Beispiel Curl Command - Crif Bonitätsauskunkt (Produkt ConCheckPlusIdent)
 # Anfrage an die mediaFinanz REST API v2.1
 # @see https://api.mediafinanz.de/docs/v2.1/openapi/gui/
 
@@ -19,11 +19,11 @@ sPassword='';
 #
 # Curl Command
 # Crif Bonitätsanfrage an die mediaFinanz REST API v2.1
-# @see https://api.mediafinanz.de/docs/v2.1/crif_request_score_concheck/
+# @see https://api.mediafinanz.de/docs/v2.1/crif_request_score_concheckplusident/
 # @see https://api.mediafinanz.de/docs/v2.1/openapi/#validate-option
 #
 curl -X 'POST' \
-  'https://test.api.mediafinanz.de/v2.1/infoservice/crif/score/concheck/' \
+  'https://test.api.mediafinanz.de/v2.1/infoservice/crif/score/concheckplusident/' \
   -H "uuid: $sUuid" \
   -H "user: $sUser" \
   -H "password: $sPassword" \
@@ -34,7 +34,7 @@ curl -X 'POST' \
     "Order": {
       "CustomerReference": "6910-2",
       "ProofOfInterest": 3,
-      "ReportFormat": "NONE"
+      "ReportFormat": "PDF"
     },
     "Person": {
       "Title": "Prof. Dr.",
@@ -50,4 +50,4 @@ curl -X 'POST' \
       "City": "Osnabrück",
       "CountryCode": "DE"
     }
-  }';
+  }'

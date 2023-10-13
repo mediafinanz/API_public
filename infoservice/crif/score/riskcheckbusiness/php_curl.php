@@ -1,6 +1,6 @@
 <?php
 /**
- * PHP Beispiel - Crif Bonitätsauskunkt (Produkt ConCheck)
+ * PHP Beispiel - Crif Bonitätsauskunkt (Produkt RiskCheckBusiness)
  * Anfrage an die mediaFinanz REST API v2.1
  * @see https://api.mediafinanz.de/docs/v2.1/openapi/gui/
  */
@@ -15,6 +15,7 @@ $sUuid = '12345678-1234-1234-1234-123456789012';
 $sUser = '';
 $sPassword = '';
 
+
 // validate gegen OpenApi true|false
 // @see https://api.mediafinanz.de/docs/v2.1/openapi/#validate-option
 $bValidate = true;
@@ -24,27 +25,25 @@ $bValidate = true;
 /**
  * Beispiel-JSON-Datensatz
  * Crif Bonitätsanfrage an die mediaFinanz REST API v2.1
- * @see https://api.mediafinanz.de/docs/v2.1/crif_request_score_concheck/
+ * @see https://api.mediafinanz.de/docs/v2.1/crif_request_score_riskcheckbusiness/
  */
 $sJsonBody = '{
     "Order": {
-    "CustomerReference": "6910-2",
-    "ProofOfInterest": 3,
-    "ReportFormat": "NONE"
+      "CustomerReference": "7910-3",
+      "ProofOfInterest": 3,
+      "ReportFormat": "NONE"
     },
-    "Person": {
-    "Title": "Prof. Dr.",
-    "FirstName": "Max",
-    "LastName": "Mustermann",
-    "Gender": "m",
-    "BirthDate": "2001-05-08"
+    "Company": {
+      "CompanyName": "Mustermann GmbH",
+      "CommercialRegisterNumber": "HRB 230807",
+      "VAT_ID": "DE123456789"
     },
     "Address": {
-    "Street": "Weiße Breite",
-    "HouseNumber": "5-7",
-    "PostalCode": "49084",
-    "City": "Osnabrück",
-    "CountryCode": "DE"
+      "Street": "Weiße Breite",
+      "HouseNumber": "5-7",
+      "PostalCode": "49084",
+      "City": "Osnabrück",
+      "CountryCode": "DE"
     }
 }';
 
@@ -69,7 +68,7 @@ $aHeader[] = 'Accept: application/json';
 $aHeader[] = 'Content-Type: application/json';
 
 $rCurl = curl_init();
-curl_setopt($rCurl, CURLOPT_URL, 'https://test.api.mediafinanz.de/v2.1/infoservice/crif/score/concheck/');
+curl_setopt($rCurl, CURLOPT_URL, 'https://test.api.mediafinanz.de/v2.1/infoservice/crif/score/riskcheckbusiness/');
 curl_setopt($rCurl, CURLOPT_CUSTOMREQUEST, 'POST');
 curl_setopt($rCurl, CURLOPT_HTTPHEADER, $aHeader);
 curl_setopt($rCurl, CURLOPT_POSTFIELDS, $sJsonBody);
