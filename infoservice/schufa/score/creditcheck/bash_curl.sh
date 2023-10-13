@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Beispiel Curl Command - Schufa Identitätscheck (Produkt IdentCheckChildProtection)
+# Beispiel Curl Command - Schufa Bonitätsauskunkt
 # Anfrage an die mediaFinanz REST API v2.1
 # @see https://api.mediafinanz.de/docs/v2.1/openapi/gui/
 
@@ -18,12 +18,12 @@ sPassword='';
 
 #
 # Curl Command
-# für Schufa IdentCheck Anfrage an die mediaFinanz REST API v2.1
-# @see https://api.mediafinanz.de/docs/v2.1/schufa_request_identcheck_childprotection/
+# für Schufa Bonitätsanfrage an die mediaFinanz REST API v2.1
+# @see https://api.mediafinanz.de/docs/v2.1/schufa_request_score_creditcheck/
 # @see https://api.mediafinanz.de/docs/v2.1/openapi/#validate-option
 #
 curl -X 'POST' \
-  'https://test.api.mediafinanz.de/v2.1/infoservice/schufa/identcheck/childprotection/' \
+  'https://test.api.mediafinanz.de/v2.1/infoservice/schufa/score/creditcheck/' \
   -H "uuid: $sUuid" \
   -H "user: $sUser" \
   -H "password: $sPassword" \
@@ -33,7 +33,7 @@ curl -X 'POST' \
   -d '{
   "Order": {
     "CustomerReference": "6910-2",
-    "IdentCheckVariant": "Jugendschutz"
+    "RequestFeatureCode": "AV"
   },
   "Person": {
     "Title": "Prof. Dr.",
@@ -50,4 +50,4 @@ curl -X 'POST' \
     "City": "Osnabrück",
     "CountryCode": "DE"
   }
-}'
+}';
