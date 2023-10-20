@@ -15,10 +15,15 @@ $sUuid = '12345678-1234-1234-1234-123456789012';
 $sUser = '';
 $sPassword = '';
 
-
 // validate gegen OpenApi true|false
 // @see https://api.mediafinanz.de/docs/v2.1/openapi/#validate-option
 $bValidate = true;
+
+// Standard Report ohne PDF
+$sReportFormat = 'NONE';
+
+// Standard Report mit PDF
+//$sReportFormat = 'PDF';
 
 #-----------------------------------------------------------------------------------------------------------------------
 
@@ -31,7 +36,7 @@ $sJsonBody = '{
     "Order": {
       "CustomerReference": "7910-3",
       "ProofOfInterest": 3,
-      "ReportFormat": "NONE"
+      "ReportFormat": "'.$sReportFormat.'"
     },
     "Company": {
       "CompanyName": "Mustermann GmbH",
@@ -82,6 +87,25 @@ curl_setopt($rCurl, CURLOPT_TIMEOUT, 30);
 $sResponse = curl_exec($rCurl);
 echo $sResponse  . PHP_EOL;
 
+$aResponse = json_decode($sResponse, true);
+
+if($sReportFormat == 'PDF'
+    && isset($aResponse['DataBase64Encoded'])
+    && !empty($aResponse['DataBase64Encoded'])) {
+    $sPdf = $aResponse['DataBase64Encoded'];
+
+    $sTestPdf = base64_decode($sPdf);
+    $sFileName = date('Y-m-d_H:i:s') . '_RiskCheckBusiness.pdf';
+    file_put_contents($sFileName, $sTestPdf);
+}
+else
+{
+    echo var_export($aResponse, true);
+}
+
 // potential Errors
 $sError = curl_error($rCurl);
-var_dump($sError);
+
+if(!empty($sError)) {
+    var_dump($sError);
+}

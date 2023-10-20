@@ -15,10 +15,15 @@ $sUuid = '12345678-1234-1234-1234-123456789012';
 $sUser = '';
 $sPassword = '';
 
-
 // validate gegen OpenApi true|false
 // @see https://api.mediafinanz.de/docs/v2.1/openapi/#validate-option
 $bValidate = true;
+
+// Standard Report ohne PDF
+$sReportFormat = 'NONE';
+
+// Standard Report mit PDF
+//$sReportFormat = 'PDF';
 
 #-----------------------------------------------------------------------------------------------------------------------
 
@@ -29,23 +34,23 @@ $bValidate = true;
  */
 $sJsonBody = '{
     "Order": {
-    "CustomerReference": "6910-2",
-    "ProofOfInterest": 3,
-    "ReportFormat": "PDF"
+      "CustomerReference": "6910-2",
+      "ProofOfInterest": 3,
+      "ReportFormat": "'.$sReportFormat.'"
     },
     "Person": {
-    "Title": "Prof. Dr.",
-    "FirstName": "Max",
-    "LastName": "Mustermann",
-    "Gender": "m",
-    "BirthDate": "2001-05-08"
+      "Title": "Prof. Dr.",
+      "FirstName": "Max",
+      "LastName": "Mustermann",
+      "Gender": "m",
+      "BirthDate": "2001-05-08"
     },
     "Address": {
-    "Street": "Weiße Breite",
-    "HouseNumber": "5-7",
-    "PostalCode": "49084",
-    "City": "Osnabrück",
-    "CountryCode": "DE"
+      "Street": "Weiße Breite",
+      "HouseNumber": "5-7",
+      "PostalCode": "49084",
+      "City": "Osnabrück",
+      "CountryCode": "DE"
     }
 }';
 
@@ -84,6 +89,25 @@ curl_setopt($rCurl, CURLOPT_TIMEOUT, 30);
 $sResponse = curl_exec($rCurl);
 echo $sResponse  . PHP_EOL;
 
+$aResponse = json_decode($sResponse, true);
+
+if($sReportFormat == 'PDF'
+    && isset($aResponse['DataBase64Encoded'])
+    && !empty($aResponse['DataBase64Encoded'])) {
+    $sPdf = $aResponse['DataBase64Encoded'];
+
+    $sTestPdf = base64_decode($sPdf);
+    $sFileName = date('Y-m-d_H:i:s') . '_ConCheckPlusIdent.pdf';
+    file_put_contents($sFileName, $sTestPdf);
+}
+else
+{
+    echo var_export($aResponse, true);
+}
+
 // potential Errors
 $sError = curl_error($rCurl);
-var_dump($sError);
+
+if(!empty($sError)) {
+    var_dump($sError);
+}
