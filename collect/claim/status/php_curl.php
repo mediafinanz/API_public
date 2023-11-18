@@ -11,13 +11,9 @@
  * Zugangsdaten erhalten Sie bei mediaFinanz GmbH
  * @see https://api.mediafinanz.de/docs/v2.1/account/
  */
-/*$sUuid = '12345678-1234-1234-1234-123456789012';
+$sUuid = '12345678-1234-1234-1234-123456789012';
 $sUser = '';
-$sPassword = '';*/
-
-$sUuid = '76966c51-5223-11ee-bfd8-960001972e5b';
-$sUser = 'itsolutions-rwo';
-$sPassword = '71xv50a10;58a-2zPqdA3e0e6j494dC8';
+$sPassword = '';
 
 // validate gegen OpenApi true|false
 // @see https://api.mediafinanz.de/docs/v2.1/openapi/#validate-option
